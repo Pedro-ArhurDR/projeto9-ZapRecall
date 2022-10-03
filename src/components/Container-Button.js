@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-export default function ContainerButton({perguntasClicadas2,contador,colorir,perguntas2,setPerguntas2,clicados, setClicados}) {
+export default function ContainerButton({contador2,index,contador,colorir,perguntas2,setPerguntas2}) {
 
     const red= '#FF3030';
     const verde = "#2FBE34";
     const amarelo ="#FF922E";
+    console.log("PERGUNTAS 2: ",perguntas2)
     return (
         <Footer>
-        <Botoes><Botao onClick={()=>colorir(red)&setPerguntas2(perguntas2)} cor={red}>Não lembrei</Botao>
-        <Botao onClick={()=>colorir(amarelo)&setPerguntas2(perguntas2)} cor={amarelo}>Quase não lembreo</Botao>
-        <Botao onClick={()=>colorir(verde)&setPerguntas2(perguntas2)} cor={verde}>Zap!</Botao></Botoes> 
+        <Botoes><Botao onClick={()=>contador2===0?"":perguntas2[index].status!==""?"":colorir(red)&setPerguntas2(perguntas2)} cor={red}>Não lembrei</Botao>
+        <Botao onClick={()=>contador2===0?"":perguntas2[index].status!==""?"":colorir(amarelo)&setPerguntas2(perguntas2)} cor={amarelo}>Quase não lembreo</Botao>
+        <Botao onClick={()=>contador2===0?"":perguntas2[index].status!==""?"":colorir(verde)&setPerguntas2(perguntas2)} cor={verde}>Zap!</Botao></Botoes> 
         {contador}/8 Concluidos</Footer>
     )
 }

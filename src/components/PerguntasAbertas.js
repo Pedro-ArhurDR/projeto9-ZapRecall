@@ -1,13 +1,15 @@
 import virar from '../assets/img/seta_virar.png'
 import styled from 'styled-components'
 import { useState } from 'react'
-export default function PerguntasAbertas({u,perguntas2,setPerguntas2,clicados, setClicados}) {
+export default function PerguntasAbertas({contador2, setContador2,u,perguntas2,setPerguntas2,clicados, setClicados}) {
     const [perguntasClicadas, setPerguntasClicadas] = useState([])
+    console.log("CONTADOR",contador2)
     function clicou(pergunta){
         if(!perguntasClicadas.includes(pergunta)){
           setPerguntasClicadas([...perguntasClicadas,pergunta])
         setPerguntas2([...perguntas2])
         setClicados([...clicados,pergunta.perguntaF])
+        setContador2(contador2+1)
         }
       }
     return (

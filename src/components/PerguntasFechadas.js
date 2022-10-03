@@ -3,21 +3,26 @@ import certo from '../assets/img/icone_certo.png'
 import erro from '../assets/img/icone_erro.png'
 import quase from '../assets/img/icone_quase.png'
 import styled from 'styled-components'
-export default function PerguntasFechadas({i,u,perguntasClicadas2,setPerguntasClicadas2,colorir,color,setPerguntas2,perguntas2,clicados,contador ,setContador}) {
-    function mostrar(pergunta, index){
+export default function PerguntasFechadas({setIndex,contador3, setContador3, 
+  indice,u,perguntasClicadas2,setPerguntasClicadas2,setPerguntas2,perguntas2}) {
+    
+    function mostrar(pergunta){
         setPerguntasClicadas2([...perguntasClicadas2,pergunta])
       setPerguntas2(perguntas2)
-        
+      console.log("index", indice)
+        setIndex(indice)
+        setContador3(true)
       }
-
+      console.log("contador3", contador3)
       function icone(){
-        if(perguntas2[i].cor==='#FF3030'){
+        if(perguntas2[indice].cor==='#FF3030'){
           return erro
+          
         }
-        else if(perguntas2[i].cor==="#2FBE34"){
+        else if(perguntas2[indice].cor==="#2FBE34"){
           return certo
         }
-        else if(perguntas2[i].cor==="#FF922E"){
+        else if(perguntas2[indice].cor==="#FF922E"){
           return quase
         }
         else{
@@ -25,10 +30,9 @@ export default function PerguntasFechadas({i,u,perguntasClicadas2,setPerguntasCl
         }
       }
       
-      console.log("POSIÇÃO: ",perguntas2[i])
     return (<>
-    <PerguntaFechada u={u}cor={perguntas2[i].cor} ><p>{u.perguntaF}</p><img src={icone()} 
-    onClick={()=>perguntas2[i].cor===""?mostrar(u.perguntaF)&& colorir():""}/></PerguntaFechada>
+    <PerguntaFechada u={u}cor={perguntas2[indice].cor} ><p>{u.perguntaF}</p><img src={icone()} 
+    onClick={()=>contador3===true?"":perguntas2[indice].cor===""?mostrar(u.perguntaF):""}/></PerguntaFechada>
     </>
         
         

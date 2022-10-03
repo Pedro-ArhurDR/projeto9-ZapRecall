@@ -6,6 +6,7 @@ export default function Container() {
     const [perguntasClicadas2, setPerguntasClicadas2] = useState([])
     const [contador,setContador] = useState(0)
     const [color,setColor] = useState('#FFFFF')
+    const [index, setIndex] = useState(-1)
     const[ perguntas2,setPerguntas2]= useState([
         {perguntaF:'Pergunta1',
           pergunta:'O que é JSX?',
@@ -62,26 +63,29 @@ export default function Container() {
       status:"",
       cor:""}])
       const [clicados, setClicados] = useState(["undefined",])
-      console.log("perguntas2 ",perguntas2)
-
-      console.log(" STATUS ",perguntas2[0].status)
+      const [contador2, setContador2] = useState(0)
+      const [contador3,setContador3]=useState(false)
     function colorir(c){
         const novoarray = perguntasClicadas2.shift()
         setPerguntasClicadas2(perguntasClicadas2)
         setColor([c])
-        setPerguntas2(perguntas2[contador].status=1)
-        setPerguntas2(perguntas2[contador].cor=c)
-        if(contador<8){
+        setPerguntas2(perguntas2[index].status=1)
+        setPerguntas2(perguntas2[index].cor=c)
+        setContador2(0)
+        setContador3(false)
+        if(contador<=8){
          setContador(contador+1)
         }
        }
-       console.log("sua cor: ", color)
     return(
         <Cntn>
-            <ContainerCards contador={contador} setContador={setContador} clicados={clicados} setClicados={setClicados} perguntas2={perguntas2} setPerguntas2={setPerguntas2} color={color} colorir={colorir} perguntasClicadas2={perguntasClicadas2} setPerguntasClicadas2={setPerguntasClicadas2} />
-           <ContainerButton clicados={clicados} setClicados={setClicados} perguntas2={perguntas2} setPerguntas2={setPerguntas2} 
-           color={color} setColor={setColor} colorir ={colorir} contador={contador} setContador={setContador} 
-           perguntasClicadas2={perguntasClicadas2} setPerguntasClicadas2={setPerguntasClicadas2}/>
+            <ContainerCards contador3={contador3} setContador3={setContador3}  contador2={contador2} 
+            setContador2={setContador2} setIndex={setIndex} clicados={clicados} setClicados={setClicados} perguntas2={perguntas2} 
+            setPerguntas2={setPerguntas2} perguntasClicadas2={perguntasClicadas2} setPerguntasClicadas2={setPerguntasClicadas2} />
+           <ContainerButton contador2={contador2} index={index} 
+            perguntas2={perguntas2} setPerguntas2={setPerguntas2} 
+           colorir ={colorir} contador={contador}
+          />
         </Cntn>
     )
 }
