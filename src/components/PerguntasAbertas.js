@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { useState } from 'react'
 export default function PerguntasAbertas({u,perguntas2,setPerguntas2,clicados, setClicados}) {
     const [perguntasClicadas, setPerguntasClicadas] = useState([])
-    console.log('novo console',clicados)
     function clicou(pergunta){
         if(!perguntasClicadas.includes(pergunta)){
           setPerguntasClicadas([...perguntasClicadas,pergunta])

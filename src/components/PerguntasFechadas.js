@@ -1,16 +1,34 @@
 import play from '../assets/img/seta_play.png'
+import certo from '../assets/img/icone_certo.png'
+import erro from '../assets/img/icone_erro.png'
+import quase from '../assets/img/icone_quase.png'
 import styled from 'styled-components'
 export default function PerguntasFechadas({i,u,perguntasClicadas2,setPerguntasClicadas2,colorir,color,setPerguntas2,perguntas2,clicados,contador ,setContador}) {
-  const linha= "line-through"
-  const array = 'Pergunta1'
     function mostrar(pergunta, index){
         setPerguntasClicadas2([...perguntasClicadas2,pergunta])
       setPerguntas2(perguntas2)
         
       }
-      console.log("POSIÇÃO: ",perguntas2[contador])
+
+      function icone(){
+        if(perguntas2[i].cor==='#FF3030'){
+          return erro
+        }
+        else if(perguntas2[i].cor==="#2FBE34"){
+          return certo
+        }
+        else if(perguntas2[i].cor==="#FF922E"){
+          return quase
+        }
+        else{
+          return play
+        }
+      }
+      
+      console.log("POSIÇÃO: ",perguntas2[i])
     return (<>
-    <PerguntaFechada linha={linha} u={u}perguntas2={perguntas2[i].cor} cor={color}><p>{u.perguntaF}</p><img src={play} onClick={()=>mostrar(u.perguntaF)&& colorir()}/></PerguntaFechada>
+    <PerguntaFechada u={u}cor={perguntas2[i].cor} ><p>{u.perguntaF}</p><img src={icone()} 
+    onClick={()=>perguntas2[i].cor===""?mostrar(u.perguntaF)&& colorir():""}/></PerguntaFechada>
     </>
         
         
@@ -41,6 +59,6 @@ width: 300px;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  color: ${(props)=>props.perguntas2!==""?props.cor:""};
+  color: ${(props)=>props.cor};
   }
 `

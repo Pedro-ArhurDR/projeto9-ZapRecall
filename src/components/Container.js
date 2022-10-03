@@ -12,7 +12,6 @@ export default function Container() {
       resposta:'Uma extensão de linguagem do JavaScript',
       status:"",
       cor:"",
-      cor:""
     },
       {perguntaF:'Pergunta2',
         pergunta:'O React é __' ,
