@@ -1,14 +1,21 @@
 import play from '../assets/img/seta_play.png'
 import styled from 'styled-components'
-export default function PerguntasFechadas({u,perguntasClicadas2,setPerguntasClicadas2}) {
+export default function PerguntasFechadas({i,u,perguntasClicadas2,setPerguntasClicadas2,colorir,color,setPerguntas2,perguntas2,clicados,contador ,setContador}) {
+  const linha= "line-through"
+  const array = 'Pergunta1'
     function mostrar(pergunta, index){
         setPerguntasClicadas2([...perguntasClicadas2,pergunta])
-        console.log(pergunta)
+      setPerguntas2(perguntas2)
         
       }
-    return (
-        <PerguntaFechada><p>{u.perguntaF}</p><img src={play} onClick={()=>mostrar(u.perguntaF)}/></PerguntaFechada>
+      console.log("POSIÇÃO: ",perguntas2[contador])
+    return (<>
+    <PerguntaFechada linha={linha} u={u}perguntas2={perguntas2[i].cor} cor={color}><p>{u.perguntaF}</p><img src={play} onClick={()=>mostrar(u.perguntaF)&& colorir()}/></PerguntaFechada>
+    </>
+        
+        
     )
+    
 }
 const PerguntaFechada = styled.div`
 width: 300px;
@@ -28,11 +35,12 @@ width: 300px;
     height:20px;
   }
   p{
+    text-decoration:${(props)=>props.u.status!==""?"line-through":""};
     font-family: 'Recursive';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  color: #333333;
+  color: ${(props)=>props.perguntas2!==""?props.cor:""};
   }
 `
