@@ -13,9 +13,8 @@ export default function PerguntasAbertas({contador2, setContador2,u,perguntas2,s
         }
       }
     return (
-        <PerguntaAberta>{perguntasClicadas.includes(u)?u.resposta:u.pergunta}<img onClick={()=>clicou(u)} src={virar}/></PerguntaAberta>
+        <PerguntaAberta data-identifier="flashcard-question">{perguntasClicadas.includes(u)?u.resposta:u.pergunta}<img data-identifier="flashcard-turn-btn" onClick={()=>clicou(u)} src={virar}/></PerguntaAberta>
     )
-    
 }
 const PerguntaAberta = styled.div`
   width: 300px;

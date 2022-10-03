@@ -8,10 +8,11 @@ export default function ContainerButton({contador2,index,contador,colorir,pergun
     const amarelo ="#FF922E";
     console.log("PERGUNTAS 2: ",perguntas2)
     return (
-        <Footer>
-        <Botoes><Botao onClick={()=>contador2===0?"":perguntas2[index].status!==""?"":colorir(red)&setPerguntas2(perguntas2)} cor={red}>Não lembrei</Botao>
-        <Botao onClick={()=>contador2===0?"":perguntas2[index].status!==""?"":colorir(amarelo)&setPerguntas2(perguntas2)} cor={amarelo}>Quase não lembreo</Botao>
-        <Botao onClick={()=>contador2===0?"":perguntas2[index].status!==""?"":colorir(verde)&setPerguntas2(perguntas2)} cor={verde}>Zap!</Botao></Botoes> 
+        <Footer data-identifier="flashcard-counter">
+        <Botoes><Botao data-identifier="forgot-btn" onClick={()=>contador2===0?"":perguntas2[index].status!==""?"":colorir(red)&setPerguntas2(perguntas2)} cor={red}>Não lembrei</Botao>
+        <Botao data-identifier="almost-forgot-btn" onClick={()=>contador2===0?"":perguntas2[index].status!==""?"":colorir(amarelo)&setPerguntas2(perguntas2)} cor={amarelo}>Quase não lembreo</Botao>
+        <Botao data-identifier="zap-btn" onClick={()=>contador2===0?"":perguntas2[index].status!==""?"":colorir(verde)&setPerguntas2(perguntas2)} cor={verde}>Zap!</Botao>
+        </Botoes> 
         {contador}/8 Concluidos</Footer>
     )
 }

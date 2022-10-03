@@ -31,8 +31,8 @@ export default function PerguntasFechadas({setIndex,contador3, setContador3,
       }
       
     return (<>
-    <PerguntaFechada u={u}cor={perguntas2[indice].cor} ><p>{u.perguntaF}</p><img src={icone()} 
-    onClick={()=>contador3===true?"":perguntas2[indice].cor===""?mostrar(u.perguntaF):""}/></PerguntaFechada>
+    <PerguntaFechada data-identifier="flashcard" u={u}cor={perguntas2 [indice].cor} ><p data-identifier="flashcard-index-item">{u.perguntaF}</p><img data-identifier="flashcard-show-btn" src={icone()} 
+    onClick={()=>contador3===true?"":perguntas2[indice].cor===""? mostrar(u.perguntaF):""}/></PerguntaFechada>
     </>
         
         
